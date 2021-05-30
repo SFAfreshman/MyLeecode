@@ -55,15 +55,9 @@ public class BinaryTreeLevelOrderTraversal {
             Queue<TreeNode> q1 = new LinkedList<>();
             q1.offer(root);
             if (root != null) {
-                int[] temp = new int[]{root.val};
-                List firstLevel = Arrays.asList(temp);
-                res.add(firstLevel);
-                /*测试结果:[[[3]],[9,20],[15,7]]
-                期望结果:[[3],[9,20],[15,7]]*/
+                res.add(Arrays.asList(new Integer[]{root.val}));
             }
-
-        /*res.add(Arrays.asList([root.val]));else return res;
-        为空时如何返回,res=[]; 还是直接返回*/
+            else return res;//新增:解决传入[]空二叉树
             while (!q1.isEmpty()) {
                 ArrayList<Integer> curlevel = new ArrayList<>();//当前层值 默认为[]
                 int size = q1.size();
